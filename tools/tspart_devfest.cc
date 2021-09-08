@@ -134,8 +134,8 @@ tgui::HorizontalLayout::Ptr slider(int from, int def, int to, std::function<void
 
 int main (int argc, char** argv)
 {
-  if (argc != 4) {
-    printf("Missing args: <file in> <algo> <file out.svg>");
+  if (argc != 5) {
+    printf("Missing args: <file in> <algo> <resolution:1500> <file out.svg>");
     return -1;
   }
 
@@ -190,10 +190,10 @@ int main (int argc, char** argv)
 
   };
 
-  out_filename.set_data(argv[3]);
+  out_filename.set_data(argv[4]);
 
   // Size: 2000
-  size.set_data(1500);
+  size.set_data(atoi(argv[3]));
 
   // Details: 8
   gauss.set_data(pow(1.5, 8));
